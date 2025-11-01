@@ -1,0 +1,7 @@
+.todo-filter {
+  display: inline-block;
+}
+
+.todo-filter select {
+  margin-left: 0.5rem;
+}

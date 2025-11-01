@@ -1,0 +1,40 @@
+.todo-form {
+  display: block;
+}
+
+.field {
+  margin-bottom: 0.75rem;
+}
+
+/* Make the title field longer and add extra space below it */
+.field.title-field {
+  margin-bottom: 1.25rem;
+  width: 100%;
+  max-width: 600px;
+  margin-right: 1.25rem;
+}
+
+.field label {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.field.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
+.error {
+  color: #b00020;
+  display: block;
+}
+
+.help {
+  color: #666;
+  display: block;
+}

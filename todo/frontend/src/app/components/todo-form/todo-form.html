@@ -1,0 +1,28 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <mat-form-field appearance="outline" class="field title-field">
+    <mat-label>Titolo</mat-label>
+    <input matInput id="title" type="text" formControlName="title" required maxlength="200" placeholder="Es. Comprare il latte" aria-describedby="title-help title-error" />
+    <mat-hint id="title-help">Massimo 200 caratteri</mat-hint>
+    @if (form.controls.title.touched && form.controls.title.invalid) {
+      <mat-error id="title-error">Il titolo è obbligatorio</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="field">
+    <mat-label>Categoria</mat-label>
+    <mat-select id="categoryId" formControlName="categoryId">
+      <mat-option [value]="null">Nessuna</mat-option>
+      @for (c of categories(); track c.id) {
+        <mat-option [value]="c.id">{{ c.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <div class="field checkbox">
+    <mat-checkbox id="completed" formControlName="completed">Completato</mat-checkbox>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Aggiungi</button>
+  </div>
+</form>

@@ -1,0 +1,18 @@
+<mat-list role="list">
+  @if (todos().length === 0) {
+    <mat-list-item role="listitem" class="empty">Nessun To‑Do</mat-list-item>
+  } @else {
+    @for (t of todos(); track t.id) {
+      <mat-list-item role="listitem">
+        <div class="item">
+          <span class="title" [class.completed]="t.completed">{{ t.title }}</span>
+          <span class="meta">#{{ t.id }} · {{ t.createdAt | date: 'short' }}</span>
+          <button mat-icon-button color="warn" aria-label="Elimina" (click)="deleteClicked.emit(t.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    }
+  }
+</mat-list>

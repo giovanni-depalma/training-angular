@@ -1,0 +1,26 @@
+@backend_HostAddress = http://localhost:5273
+
+### GET all todos (optional filters)
+GET {{backend_HostAddress}}/todos
+Accept: application/json
+
+### GET todos filtered by categoryId
+GET {{backend_HostAddress}}/todos?categoryId=1
+Accept: application/json
+
+### GET todos filtered by categoryName
+GET {{backend_HostAddress}}/todos?categoryName=Lavoro
+Accept: application/json
+
+### Create a new todo
+POST {{backend_HostAddress}}/todos
+Content-Type: application/json
+
+{
+  "title": "Nuovo task",
+  "completed": false,
+  "categoryId": 1
+}
+
+### Delete a todo by id
+DELETE {{backend_HostAddress}}/todos/1
