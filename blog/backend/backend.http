@@ -1,0 +1,26 @@
+@base = http://localhost:5273
+
+### List all posts (with comments)
+GET {{base}}/posts
+
+### Create a new post
+POST {{base}}/posts
+Content-Type: application/json
+
+{
+  "title": "Un nuovo post",
+  "body": "Questo è il contenuto del nuovo post."
+}
+
+### Delete a post by id
+DELETE {{base}}/posts/1
+
+### Create a new comment for a post
+POST {{base}}/comments
+Content-Type: application/json
+
+{
+  "postId": 1,
+  "author": "Mario",
+  "content": "Bel post!"
+}

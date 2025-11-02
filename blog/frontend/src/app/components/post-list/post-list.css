@@ -1,0 +1,24 @@
+.post-list {
+  display: block;
+}
+mat-card.post {
+  margin-bottom: 1rem;
+}
+mat-card-header {
+  display: flex;
+  align-items: center;
+}
+.delete-btn {
+  margin-left: auto;
+}
+.body {
+  white-space: pre-wrap;
+}
+.meta {
+  color: #666;
+  font-size: 12px;
+  margin-top: 0.5rem;
+}
+.comments {
+  margin-top: 1rem;
+}

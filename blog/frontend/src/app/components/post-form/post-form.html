@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(formDir)" #formDir="ngForm" novalidate>
+  <mat-form-field appearance="outline" class="field">
+    <mat-label>Titolo</mat-label>
+    <input matInput id="title" type="text" formControlName="title" required maxlength="200" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="field wide">
+    <mat-label>Contenuto</mat-label>
+    <textarea matInput id="body" rows="6" formControlName="body" required></textarea>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Pubblica</button>
+  </div>
+</form>

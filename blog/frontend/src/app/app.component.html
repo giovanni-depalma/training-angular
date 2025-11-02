@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">Blog</mat-toolbar>
+
+<main class="container">
+  @if (error()) {
+    <mat-card class="error-card" appearance="outlined">
+      <mat-card-content>{{ error() }}</mat-card-content>
+    </mat-card>
+  }
+
+  @if (loading()) {
+    <div class="loading">
+      <mat-progress-spinner mode="indeterminate" diameter="24"></mat-progress-spinner>
+      <span>Caricamento…</span>
+    </div>
+  }
+
+  <mat-card class="list" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Post</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-post-list [posts]="posts()" (deleteClicked)="onDeletePost($event)" (commentSubmitted)="onCreateComment($event)" />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="form" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Nuovo post</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-post-form (submitted)="onCreatePost($event)" />
+    </mat-card-content>
+  </mat-card>
+</main>

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 import { Group } from '../../models/group';
 import { CreateContactInput } from '../../models/contact';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,7 +29,7 @@ export class ContactForm {
     groupIds: new FormControl<number[] | null>(null)
   });
 
-  onSubmit(): void {
+  onSubmit(formDir: FormGroupDirective): void {
     if (this.form.invalid) return;
     const value = this.form.getRawValue();
     this.submitted.emit({
@@ -39,6 +39,7 @@ export class ContactForm {
       phone: value.phone ?? null,
       groupIds: value.groupIds ?? null
     });
-    this.form.reset({ firstName: '', lastName: '', email: '', phone: null, groupIds: null });
+    // Reset using FormGroupDirective to clear the submitted/touched/dirty state
+    formDir.resetForm({ firstName: '', lastName: '', email: '', phone: null, groupIds: null });
   }
 }

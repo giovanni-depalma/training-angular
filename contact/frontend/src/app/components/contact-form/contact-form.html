@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+<form [formGroup]="form" (ngSubmit)="onSubmit(formDir)" #formDir="ngForm" novalidate>
   <div class="row">
     <mat-form-field appearance="outline" class="field">
       <mat-label>Nome</mat-label>

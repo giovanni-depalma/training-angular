@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 import { Category } from '../../models/category';
 import { CreateTodoInput } from '../../models/todo';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,7 +28,7 @@ export class TodoForm {
     completed: new FormControl<boolean>(false, { nonNullable: true })
   });
 
-  onSubmit(): void {
+  onSubmit(formDir: FormGroupDirective): void {
     if (this.form.invalid) return;
     const value = this.form.getRawValue();
     this.submitted.emit({
@@ -36,6 +36,7 @@ export class TodoForm {
       categoryId: value.categoryId ?? null,
       completed: value.completed
     });
-    this.form.reset({ title: '', categoryId: null, completed: false });
+    // Reset via FormGroupDirective to also clear submitted/touched/dirty flags
+    formDir.resetForm({ title: '', categoryId: null, completed: false });
   }
 }

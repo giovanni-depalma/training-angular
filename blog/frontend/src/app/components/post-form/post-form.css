@@ -1,0 +1,10 @@
+.field {
+  display: block;
+  margin-bottom: 1rem;
+}
+.field.wide {
+  width: 100%;
+}
+.actions {
+  margin-top: 1rem;
+}

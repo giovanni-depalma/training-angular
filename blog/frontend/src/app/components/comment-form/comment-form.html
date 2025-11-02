@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(formDir)" #formDir="ngForm" novalidate>
+  <div class="row">
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Autore</mat-label>
+      <input matInput id="author" type="text" formControlName="author" required maxlength="100" />
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline" class="field wide">
+    <mat-label>Commento</mat-label>
+    <textarea matInput id="content" rows="3" formControlName="content" required></textarea>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Aggiungi commento</button>
+  </div>
+</form>

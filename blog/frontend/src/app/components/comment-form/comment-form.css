@@ -1,0 +1,17 @@
+/* Basic layout for the inline comment form */
+.row {
+  display: flex;
+  gap: 1rem;
+}
+.field {
+  flex: 1;
+  display: block;
+  margin-bottom: 1rem;
+}
+.field.wide {
+  flex: 2;
+  width: 100%;
+}
+.actions {
+  margin-top: 0.75rem;
+}

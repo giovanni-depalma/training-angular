@@ -1,0 +1,10 @@
+<mat-nav-list>
+  @for (c of comments(); track c.id) {
+    <mat-list-item>
+      <div matListItemTitle>{{ c.author }}</div>
+      <div matListItemLine>{{ c.content }}</div>
+      <div matListItemLine class="date">{{ c.createdAt | date:'medium' }}</div>
+    </mat-list-item>
+    <mat-divider />
+  }
+</mat-nav-list>
