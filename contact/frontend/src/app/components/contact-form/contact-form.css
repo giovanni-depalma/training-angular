@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  gap: 1rem;
+}
+.field {
+  flex: 1;
+}
+.field.wide {
+  flex: 2;
+}
+.actions {
+  margin-top: 1rem;
+}

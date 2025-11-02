@@ -1,0 +1,12 @@
+<mat-nav-list>
+  @for (c of contacts(); track c.id) {
+    <mat-list-item>
+      <div matListItemTitle>{{ c.lastName }} {{ c.firstName }}</div>
+      <div matListItemLine>{{ c.email }} • {{ c.phone || '-' }}</div>
+      <button mat-icon-button color="warn" aria-label="Elimina" (click)="deleteClicked.emit(c.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+    <mat-divider />
+  }
+</mat-nav-list>

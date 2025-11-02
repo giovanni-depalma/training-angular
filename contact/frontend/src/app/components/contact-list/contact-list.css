@@ -1,0 +1,10 @@
+.contact-list {
+  display: block;
+}
+mat-list-item {
+  display: flex;
+  align-items: center;
+}
+button[mat-icon-button] {
+  margin-left: auto;
+}

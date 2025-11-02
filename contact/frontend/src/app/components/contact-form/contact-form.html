@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <div class="row">
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Nome</mat-label>
+      <input matInput id="firstName" type="text" formControlName="firstName" required maxlength="100" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Cognome</mat-label>
+      <input matInput id="lastName" type="text" formControlName="lastName" required maxlength="100" />
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline" class="field wide">
+      <mat-label>Email</mat-label>
+      <input matInput id="email" type="email" formControlName="email" required maxlength="200" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Telefono</mat-label>
+      <input matInput id="phone" type="text" formControlName="phone" maxlength="50" />
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline" class="field wide">
+    <mat-label>Gruppi</mat-label>
+    <mat-select id="groupIds" formControlName="groupIds" multiple>
+      @for (g of groups(); track g.id) {
+        <mat-option [value]="g.id">{{ g.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Aggiungi</button>
+  </div>
+</form>
